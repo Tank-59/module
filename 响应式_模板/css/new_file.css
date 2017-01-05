@@ -1,0 +1,26 @@
+	/*最外层*/
+			html{
+				padding:0px;
+				margin:0px;
+				overflow:hidden;
+			}
+			body{
+				padding:0px;
+				margin:0px;
+			position:relative;
+			overflow:hidden;
+		}
+	@font-face {
+		font-family: "TimesNewRomanBold";
+		src: url("../font/TimesNewRomanBold.ttf"); }
+	@font-face {
+		font-family: "MicrosoftYaHeiGB";
+		src: url("../font/MicrosoftYaHeiGB.ttf"); }
+		#body_div{
+			position:absolute;
+			width:1024px;
+			height:768px;
+			left:50%;
+			top:50%;
+		}
+		
