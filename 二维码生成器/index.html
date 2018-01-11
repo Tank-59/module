@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二维码</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.qrcode.min.js"></script>
+	<style>#code canvas{margin: 20px;}</style>
+</head>
+<body>
+	<textarea name="text" id="text" cols="60" rows="6"></textarea>
+	<input type="button" value="生成" id="btn">
+	<input type="button" value="清空" id="clear">
+	<br><br>
+	<div id="code"></div> 
+<script>
+	$('#btn').click(()=>{
+		var str = utf16to8($('#text').val());
+		getCode(str);
+	})
+	$('#clear').click(()=>location=location)
+	function getCode(str){
+		$('#code').qrcode({ 
+		    render: "canvas", //canvas方式
+		    width: 200, 
+		    height:200,
+		    text: str 
+		}); 
+	}
+	function utf16to8(str) {  
+    var out, i, len, c;  
+    out = "";  
+    len = str.length;  
+    for(i = 0; i < len; i++) {  
+    c = str.charCodeAt(i);  
+    if ((c >= 0x0001) && (c <= 0x007F)) {  
+        out += str.charAt(i);  
+    } else if (c > 0x07FF) {  
+        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
+        out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    } else {  
+        out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    }  
+    }  
+    return out;  
+} 
+</script>
+</body>
+</html>
