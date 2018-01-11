@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>二维码</title>
+	<title>二维码©CaoYanqi</title>
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="jquery.qrcode.min.js"></script>
-	<style>#code canvas{margin: 20px;}</style>
+	<style>#code canvas{margin: 20px;}}</style>
 </head>
 <body>
-	<textarea name="text" id="text" cols="60" rows="6"></textarea>
+	<textarea name="text" id="text" cols="60" rows="6" autofocus placeholder="输入要转换的文本"></textarea>
 	<input type="button" value="生成" id="btn">
 	<input type="button" value="清空" id="clear">
 	<br><br>
-	<div id="code"></div> 
+	<div id="code"></div>
 <script>
 	$('#btn').click(()=>{
 		var str = utf16to8($('#text').val());
