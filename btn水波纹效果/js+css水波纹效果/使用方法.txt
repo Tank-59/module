@@ -1,0 +1,14 @@
+
+使用方法：
+1、在head区域引入waved的js文件和样式文件
+<script type="text/javascript" src="js/waves.min.js"></script>
+<link rel="stylesheet" href="css/waves.min.css"/>
+	
+2、给直接链接添加class waves-effect waves-button waves-float， 例如
+<a href="#examples" class="waves-effect waves-button waves-float">See the examples</a>
+
+3、也可以用选择器指定具体某个元素
+Waves.attach('.waves-image');
+		
+4、可以配置需要的效果
+Waves.attach('.flat-box', ['waves-block']);

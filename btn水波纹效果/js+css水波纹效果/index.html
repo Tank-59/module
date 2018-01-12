@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="JS代码,图片特效,JS广告代码,JS特效代码" />
+<meta name="description" content="此代码内容为&#8203;点击元素后出现波纹散开效果，属于站长常用代码，更多图片特效代码请访问懒人图库JS代码频道。" />
+<title>&#8203;点击元素后出现波纹散开效果_懒人图库</title>
+<script type="text/javascript" src="js/waves.min.js"></script>
+<link rel="stylesheet" href="css/waves.min.css"/>
+<style type="text/css">
+	.box1, .box2 {
+		width:200px;
+		height:50px;
+		margin:30px 0;
+		line-height:50px;
+		text-align:center
+	}
+</style>
+
+</head>
+<body>
+<div style="margin:50px auto;width:330px;">
+    <!-- 代码 开始 -->
+            <a href="#examples" class="waves-effect waves-button waves-float">See the examples</a>
+            <div class="box1 flat-box">Flat Box</div>
+            <div class="box2 float-box">Float Box</div>
+            <img class="waves-image" src="images/shan.jpg">
+            <script type="text/javascript">
+                    Waves.init();
+                    Waves.attach('.flat-box', ['waves-block']);
+                    Waves.attach('.float-box', ['waves-block', 'waves-float']);
+                    Waves.attach('.waves-image');
+                                
+            </script>
+    <!-- 代码 结束 -->
+</div>
+
+<div style="text-align:center;margin:20px 0">
+<p>使用方法：<br />1、在head区域引入waved的js文件和样式文件<br />&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;js/waves.min.js&quot;&gt;&lt;/script&gt;<br />&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;href=&quot;css/waves.min.css&quot;/&gt;<br /><br />2、给直接链接添加class&nbsp;waves-effect&nbsp;waves-button&nbsp;waves-float，&nbsp;例如<br />&lt;a&nbsp;href=&quot;#examples&quot;&nbsp;class=&quot;waves-effect&nbsp;waves-button&nbsp;waves-float&quot;&gt;See&nbsp;the&nbsp;examples&lt;/a&gt;</p><p>3、也可以用选择器指定具体某个元素<br />Waves.attach(&#39;.waves-image&#39;);<br /><br />4、可以配置需要的效果<br />Waves.attach(&#39;.flat-box&#39;,&nbsp;[&#39;waves-block&#39;]);<br /></p><p>&nbsp;</p></p>
+<p style="margin:20px 0"></p>
+</div>
+</body>
+</html>
