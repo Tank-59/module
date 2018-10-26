@@ -16,6 +16,7 @@
 	$('#btn').click(()=>{
 		var str = utf16to8($('#text').val());
 		getCode(str);
+		$('#code').children().last().attr('title',str);
 	})
 	$('#clear').click(()=>location=location)
 	function getCode(str){
