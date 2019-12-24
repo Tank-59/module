@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节流防抖</title>
+</head>
+没有防抖： <input type="text" id="unDebounce">
+<br><br><br>
+有防抖：<input type="text" id="debounce">
+<br><br><br>
+有节流：<input type="text" id="throttling">
+
+<body>
+    <script>
+        function flow() {
+            console.log(arguments,Date.now());
+        }
+        // let d500 = debounce(flow, 500, true);
+        // let d2000 = debounce(flow, 2000, true);
+        // setInterval(d500('Tom', 'd500'), 1000) // 第一次1.5s执行后，每隔1s执行一次
+        // setInterval(d2000('Lucky', 'd2000'), 1000) //一次也不会执行。因为它的时间间隔是2s，而执行时间是1s，所以每次都会重新触发计时
+
+        // 防抖
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function () {
+                var context = this;
+                var args = arguments;
+                if (timeout) clearTimeout(timeout);
+                if (immediate) {
+                    var callNow = !timeout; //没有延时即准备执行
+                    timeout = setTimeout(function () {
+                        timeout = null;
+                    }, wait)
+                    if (callNow) func.apply(context, args)
+                }
+                else {
+                    timeout = setTimeout(function () {
+                        func.apply(context, args)
+                    }, wait);
+                }
+            }
+        }
+        // 节流
+        function throttling(fn, wait, maxTimelong) {
+            var timeout = null,
+                startTime = Date.parse(new Date);
+            return function () {
+                let that = this;
+                let args = arguments;
+                if (timeout !== null) clearTimeout(timeout);
+                var curTime = Date.parse(new Date);
+                if (curTime - startTime >= maxTimelong) {
+                    fn.apply(that,args);
+                    startTime = curTime;
+                } else {
+                    timeout = setTimeout(()=>{
+                        fn.apply(that,args);
+                    }, wait);
+                }
+            }
+        }
+
+
+        //======input===========
+        let inputa = document.getElementById('unDebounce');
+        let inputDebounce = document.getElementById('debounce')
+        let inputThrottling = document.getElementById('throttling')
+        function ajax(content) {
+            console.log('ajax request ' + content)
+        }
+
+        inputa.addEventListener('keyup', function (e) {
+            ajax(e.target.value)
+        })
+
+        let debounceAjax = debounce(ajax, 1000)
+        inputDebounce.addEventListener('keyup', function (e) {
+            debounceAjax(e.target.value)
+        })
+
+        let throttlingAjax = throttling(ajax,1000,1000)
+        inputThrottling.addEventListener('keyup', function(e){
+            throttlingAjax(e.target.value)
+        })
+
+    </script>
+</body>
+</html>
