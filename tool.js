@@ -30,7 +30,7 @@ export function arrayInterchange(arr, index1, index2) {
  * @param {Array<Object>} cache
  * @return {*}
  */
- function deepCopy (obj, cache = []) {
+ export function deepCopy (obj, cache = []) {
     // just return if obj is immutable value
     if (obj === null || typeof obj !== 'object') {
       return obj
